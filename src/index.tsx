@@ -1,5 +1,11 @@
 import * as React from 'react'
-import { Dimensions, Platform, View, LayoutChangeEvent } from 'react-native'
+import {
+  Dimensions,
+  Platform,
+  View,
+  LayoutChangeEvent,
+  ViewStyle,
+} from 'react-native'
 import Animated from 'react-native-reanimated'
 import {
   PanGestureHandler,
@@ -114,7 +120,7 @@ type Props = {
   onCloseStart?: () => void
   onCloseEnd?: () => void
   callbackThreshold?: number
-  borderRadius?: number
+  style?: ViewStyle
   overflow?: 'visible' | 'hidden'
 }
 
@@ -792,7 +798,7 @@ export default class BottomSheetBehavior extends React.Component<Props, State> {
   }
 
   render() {
-    const { borderRadius } = this.props
+    const { style } = this.props
     return (
       <>
         <Animated.View
@@ -844,8 +850,7 @@ export default class BottomSheetBehavior extends React.Component<Props, State> {
               this.props.enabledInnerScrolling && {
                 height: this.state.initSnap - this.state.heightOfHeader,
                 overflow: this.props.overflow || 'hidden',
-                borderTopLeftRadius: borderRadius,
-                borderTopRightRadius: borderRadius,
+                ...style,
               }
             }
           >
