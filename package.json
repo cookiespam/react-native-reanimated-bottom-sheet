@@ -1,5 +1,5 @@
 {
-  "name": "cookiespam/reanimated-bottom-sheet",
+  "name": "@cookiespam/reanimated-bottom-sheet",
   "version": "1.0.0-alpha.22",
   "description": "Bottom sheet component",
   "main": "lib/commonjs/index.js",
